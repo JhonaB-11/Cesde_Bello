@@ -6,6 +6,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import DetailsScreen from './screen/DetailsScreen';
 import addCita from './screen/addCita';
+import listCita from './screen/listCita';
 import { useState } from 'react';
 
 
@@ -77,6 +78,7 @@ function App() {
         }}
         />
         <Stack.Screen name="Add" component={addCita}/>
+        <Stack.Screen name="List" component={listCita}/>
       </Stack.Navigator>
     </NavigationContainer>
   );

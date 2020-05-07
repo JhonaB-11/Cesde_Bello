@@ -8,7 +8,7 @@ import  DateTimePickerModal  from  'react-native-modal-datetime-picker';
 
 
 
-function addCita() {
+function addCita({ navigation }) {
 
   const [ isDatePickerVisible , setDatePickerVisibility ] =  useState ( false );
   const [date, setDate] = useState(""); 
@@ -57,7 +57,7 @@ function addCita() {
       } else {
 
         try{
-          const response = await fetch('http://192.168.1.2:3000/quotesadd',{
+          const response = await fetch('http://192.168.1.2:3000/api/addquote',{
             method: 'POST',
             headers: {
               Accept: 'application/json',
@@ -76,14 +76,15 @@ function addCita() {
             })
           });
           const json = await response.json();
+          Alert.alert("Quote Create");
+          navigation.navigate("List");
           
         }   catch(error){
             console.log(error);
         }
         
       }
-      Alert.alert("Quote Create");
-      
+       
     }
     
     return (

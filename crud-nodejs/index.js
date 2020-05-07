@@ -61,23 +61,6 @@ app.post('/quotesadd', (req, res) => {
     });
 });
 
-
-//app.post('/quotesadd', (req, res) => {
-    //let quot = req.body;
-    //var sql = "SET @id = ?;SET @name = ?;SET @lastname = ?;SET @address = ?;SET @dateofbirth = ?;SET @city = ?;SET @neighborhood = ?;SET @phonenumber = ?; \
-    //CALL quoteAddOrEdit(@id,@name,@lastname,@address,@dateofbirth,@city,@neighborhood,@phonenumber);";
-    //mysqlConnection.query(sql, [quot.id, quot.name, quot.lastname, quot.address, quot.dateofbirth, quot.city, quot.neighborhood, quot.phonenumber], (err, rows, fields) => {
-        //if (!err)
-            //rows.forEach(element => {
-                //if(element.constructor == Array)
-                //res.send('Inserted quote id : '+element[0].id);
-            //});
-        //else
-            //console.log(err);
-    //})
-//});
-
-
 app.put('/quotesupdate', (req, res) => {
     let quot = req.body;
     var sql = "SSET @id = ?;SET @name = ?;SET @lastname = ?;SET @address = ?;SET @dateofbirth = ?;SET @city = ?;SET @neighborhood = ?;SET @phonenumber = ?;  \

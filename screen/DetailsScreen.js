@@ -4,6 +4,7 @@ import { View, Text, ScrollView, StyleSheet, Image, ImageBackground, TouchableOp
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import addCita from '../screen/addCita';
+import listCita from '../screen/listCita';
 import { Video } from 'expo-av';
 
 
@@ -18,7 +19,7 @@ function DetailsScreen({route, navigation}) {
         <TouchableHighlight style={styles.buttonStyle} onPress={() => navigation.navigate('Add')}>
         <Text style={{color: 'white', justifyContent:'center'}}>Add Quote +</Text>
         </TouchableHighlight>
-        <TouchableHighlight style={styles.buttonStyle} onPress={() => navigation.navigate('')}>
+        <TouchableHighlight style={styles.buttonStyle} onPress={() => navigation.navigate('List')}>
         <Text style={{color: 'white'}}>List Quote</Text>
         </TouchableHighlight>
         </View>
@@ -48,6 +49,7 @@ function DetailsScreen({route, navigation}) {
         <Stack.Navigator initialRouteName="Home">
           <Stack.Screen name="Details" component={DetailsScreen} />
           <Stack.Screen name="Add" component={addCita}/>
+          <Stack.Screen name="List" component={listCita}/>
         </Stack.Navigator>
       </NavigationContainer>
     );
