@@ -1,6 +1,22 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, TouchableHighlight } from 'react-native';
 
+const deleteQuote = async (req,res) => {
+    try{
+      let res = await fetch('http://192.168.1.2:3000/api/deletequote');
+        
+      quote.remove({"id": req.param.id}, function(error){
+        if(error){
+            
+            console.log(error);
+        } else {
+            res.logo('true');
+        }
+      })
+    }catch(error){
+      console.log('error');
+    }               
+}
 
 
 function CardComponent(props){
@@ -16,7 +32,9 @@ function CardComponent(props){
             <Text style={styles.textt}>Barrio: {neighborhood}</Text>
             <Text style={styles.textt}>Celular: {phonenumber}</Text>
             <Text style={styles.textt}>Cita: {date}</Text>
-
+            <TouchableHighlight style={styles.buttonStyle} onPress={deleteQuote} >
+            <Text style={{color: 'white', justifyContent:'center'}}>Delete Quote</Text>
+            </TouchableHighlight>
         </View>
     );
 }
@@ -43,7 +61,16 @@ const styles = StyleSheet.create({
     textt: {
         color: 'white',
         fontSize: 16
-    }
+    },
+    buttonStyle: {
+        padding: 10,
+        backgroundColor: 'red',
+        width: 120,
+        height: 40,
+        borderRadius: 10,
+        borderWidth: 1,
+        borderColor: 'white',
+      }
   });
 export default CardComponent;
 

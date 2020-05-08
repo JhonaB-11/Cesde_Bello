@@ -35,9 +35,8 @@ function listCita({navigation}) {
         <FlatList 
               data={Data}
               renderItem={({ item })=> <CardComponent quote={item}/>}
-              keyExtractor={item => item._id}            
+              keyExtractor={item => item._id}                  
             />
-    
       </ImageBackground>
     );
     
@@ -61,15 +60,6 @@ function listCita({navigation}) {
       flex : 1,
       flexDirection : 'row',
       
-    },
-    buttonStyle: {
-      padding: 10,
-      backgroundColor: '#1D66F9',
-      width: 110,
-      height: 40,
-      borderRadius: 10,
-      borderWidth: 1,
-      borderColor: 'white',
     },
     box1: {
       width: 300,
@@ -104,8 +94,16 @@ function listCita({navigation}) {
         padding: 20,
         marginVertical: 8,
         marginHorizontal: 16,
-      }
-    
-  })
+      },
+      buttonStyle: {
+        padding: 10,
+        backgroundColor: 'red',
+        width: 100,
+        height: 40,
+        borderRadius: 10,
+        borderWidth: 1,
+        borderColor: 'white',
+      }    
+  });
 
   export default listCita;
