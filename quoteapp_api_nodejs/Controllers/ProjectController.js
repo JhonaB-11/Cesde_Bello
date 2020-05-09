@@ -20,18 +20,19 @@ let controller = {
     },
     updateQuote: async (req,res) =>{
         const {id, name, lastname,address,datebirth,city,neighborhood,phonenumber,date} = req.body;
-        await Quote.findByIdAndUpdate(id,{id, name, lastname,address,datebirth,city,neighborhood,phonenumber,date});
+        await Quote.findByIdAndUpdate(_id,{id, name, lastname,address,datebirth,city,neighborhood,phonenumber,date});
         return res.status(200).json({
             response: "Task updated successfully"
         });
     },
     deleteQuote: async (req,res) =>{
+        console.log(req.body);
         const {id} = req.body;
-        await Quote.findByIdAndDelete(id);
+        Quote.findByIdAndRemove({_id: id})
         return res.status(200).json({
             response: "Quote deleted successfully"
         });
-    },
+    }
 }
 
 module.exports = controller;

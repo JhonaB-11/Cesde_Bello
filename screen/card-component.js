@@ -1,26 +1,31 @@
 import React from 'react';
 import { StyleSheet, Text, View, TouchableHighlight } from 'react-native';
 
-const deleteQuote = async (req,res) => {
-    try{
-      let res = await fetch('http://192.168.1.2:3000/api/deletequote');
-        
-      quote.remove({"id": req.param.id}, function(error){
-        if(error){
-            
-            console.log(error);
-        } else {
-            res.logo('true');
-        }
-      })
-    }catch(error){
-      console.log('error');
-    }               
-}
-
 
 function CardComponent(props){
-    const {_id, id, name, lastname, address, datebirth, city, neighborhood, phonenumber, date} = props.quote
+    const {_id, id, name, lastname, address, datebirth, city, neighborhood, phonenumber, date} = props.quote;
+
+    const deleteQuote= async () => {
+        try{
+          let response = await fetch('http://192.168.1.1:3000/api/deletequote', {
+            method: 'POST',
+            headers: {
+              Accept: 'application/json',
+              'Content-type': 'application/json'
+            },
+            body: JSON.stringify({
+              _id: _id
+              
+            })
+          });
+          const json = await response.json();
+          Alert.alert("Cita medica Eliminada");
+        }catch(error){
+          console.log(error);
+        } 
+  
+      }
+  
     return(
         <View style={styles.item}>
             <Text style={styles.name}>Nombre: {name}</Text>

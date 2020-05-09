@@ -47,15 +47,16 @@ var controller = {
             phonenumber = _req$body2.phonenumber,
             date = _req$body2.date;
 
-        await _ProjectModel2.default.findByIdAndUpdate(id, { id: id, name: name, lastname: lastname, address: address, datebirth: datebirth, city: city, neighborhood: neighborhood, phonenumber: phonenumber, date: date });
+        await _ProjectModel2.default.findByIdAndUpdate(_id, { id: id, name: name, lastname: lastname, address: address, datebirth: datebirth, city: city, neighborhood: neighborhood, phonenumber: phonenumber, date: date });
         return res.status(200).json({
             response: "Task updated successfully"
         });
     },
     deleteQuote: async function deleteQuote(req, res) {
+        console.log(req.body);
         var id = req.body.id;
 
-        await _ProjectModel2.default.findByIdAndDelete(id);
+        _ProjectModel2.default.findByIdAndRemove({ _id: id });
         return res.status(200).json({
             response: "Quote deleted successfully"
         });

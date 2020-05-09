@@ -57,7 +57,7 @@ function addCita({ navigation }) {
       } else {
 
         try{
-          const response = await fetch('http://192.168.1.2:3000/api/addquote',{
+          const response = await fetch('http://192.168.1.1:3000/api/addquote',{
             method: 'POST',
             headers: {
               Accept: 'application/json',

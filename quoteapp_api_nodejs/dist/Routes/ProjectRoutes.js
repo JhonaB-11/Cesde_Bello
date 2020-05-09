@@ -15,7 +15,7 @@ var router = _express2.default.Router();
 router.get('/listquote', _ProjectController2.default.listQuote);
 router.get('/getquote', _ProjectController2.default.getQuote);
 router.post('/addquote', _ProjectController2.default.addQuote);
-router.post('/deletequote', _ProjectController2.default.deleteQuote);
+router.post('/deletequote/', _ProjectController2.default.deleteQuote);
 router.post('/updatequote', _ProjectController2.default.updateQuote);
 //router.get('/data', controller.data);
 

@@ -16,7 +16,7 @@ function listCita({navigation}) {
     //res data for flatlist form api
     const fetchQuote = async () => {
         try{
-          let response = await fetch('http://192.168.1.2:3000/api/listquote');
+          let response = await fetch('http://192.168.1.1:3000/api/listquote');
           let jsonResponse = await response.json();
           console.log(jsonResponse);
           setData(jsonResponse.quote);
